@@ -1754,38 +1754,41 @@ display: none;
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBnZXR3ZCgpXG4jIHNldHdkKFwiXFxVc2Vyc1xcRGFuV29ya1BDXFxEZXNrdG9wXFxPbmVEcml2ZSAtIER1bmRhbGsgSW5zdGl0dXRlIG9mIFRlY2hub2xvZ3lcXDQuIERhdGEgQW5hbHl0aWNzIGZvciBJbW1lcnNpdmUgRW52aXJvbm1lbnRzIEZpbGVzXFxDQTQgTWF0ZXJpYWxzXFxQYXJ0IEFcXFwiKVxuIyBFbXBscG95ZWVzID0gcmVhZC5zcWwoXCJkYWllX2NhNF9kYXRhLnNxbFwiLCBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpXG5cbmBgYCJ9 -->
-<pre class="r"><code># getwd()
-# setwd(&quot;\Users\DanWorkPC\Desktop\OneDrive - Dundalk Institute of Technology\4. Data Analytics for Immersive Environments Files\CA4 Materials\Part A\&quot;)
-# Emplpoyees = read.sql(&quot;daie_ca4_data.sql&quot;, stringsAsFactors = FALSE)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29ubiA9IGRiQ29ubmVjdChSTXlTUUw6Ok15U1FMKCksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRibmFtZT0nc3FsODU5MTQwMicsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhvc3Q9J3NxbDguZnJlZXNxbGRhdGFiYXNlLmNvbScsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBvcnQ9MzMwNixcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdXNlcj0nc3FsODU5MTQwMicsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBhc3N3b3JkID0gcnN0dWRpb2FwaTo6YXNrRm9yUGFzc3dvcmQoXCJFbnRlciBkYXRhYmFzZSBwYXNzd29yZFwiKSlcblxuYGBgIn0= -->
+<pre class="r"><code>conn = dbConnect(RMySQL::MySQL(),
+                             dbname=&#39;sql8591402&#39;,
+                             host=&#39;sql8.freesqldatabase.com&#39;,
+                             port=3306,
+                             user=&#39;sql8591402&#39;,
+                             password = rstudioapi::askForPassword(&quot;Enter database password&quot;))
 </code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShEQkkpXG5saWJyYXJ5KFJTUUwpXG5saWJyYXJ5KFJTUUxpdGUpXG5saWJyYXJ5KGRwbHlyKVxubGlicmFyeSh5bWx0aGlzKVxubGlicmFyeSh0aWR5dmVyc2UpXG5cbmNvbiA8LSBkYkNvbm5lY3QoZHJ2ID0gUlNRTGl0ZTo6U1FMaXRlKCksIGRibmFtZSA9IFwiZGFpZV9jYTRfZGF0YTMuc3FsaXRlXCIpXG5kYkxpc3RUYWJsZXMoY29uKVxuYGBgIn0= -->
-<pre class="r"><code>library(DBI)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5saWJyYXJ5KERCSSlcbmxpYnJhcnkoUlNRTClcbmxpYnJhcnkoUlNRTGl0ZSlcbmxpYnJhcnkoZHBseXIpXG5saWJyYXJ5KHltbHRoaXMpXG5saWJyYXJ5KHRpZHl2ZXJzZSlcblxuY29ubiA8LSBkYkNvbm5lY3QoZHJ2ID0gUlNRTGl0ZTo6U1FMaXRlKCksIGRibmFtZSA9IFwiZGFpZV9jYTRfZGF0YTMuc3FsaXRlXCIpXG5kYkxpc3RUYWJsZXMoY29uKVxuYGBgIn0= -->
+<pre class="r"><code>
+library(DBI)
 library(RSQL)
 library(RSQLite)
 library(dplyr)
 library(ymlthis)
 library(tidyverse)
 
-con &lt;- dbConnect(drv = RSQLite::SQLite(), dbname = &quot;daie_ca4_data3.sqlite&quot;)
+conn &lt;- dbConnect(drv = RSQLite::SQLite(), dbname = &quot;daie_ca4_data3.sqlite&quot;)
 dbListTables(con)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG4jIFNFTEVDVCAqIEZST00gRW1wbG95ZWVzIExJTUlUIDVcblxuYGBgIn0= -->
-<pre class="sql"><code># SELECT * FROM Employees LIMIT 5
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGJEaXNjb25uZWN0KGNvbm4pXG5gYGAifQ== -->
+<pre class="r"><code>dbDisconnect(conn)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCiMgZ2V0d2QoKQ0KIyBzZXR3ZCgiXFVzZXJzXERhbldvcmtQQ1xEZXNrdG9wXE9uZURyaXZlIC0gRHVuZGFsayBJbnN0aXR1dGUgb2YgVGVjaG5vbG9neVw0LiBEYXRhIEFuYWx5dGljcyBmb3IgSW1tZXJzaXZlIEVudmlyb25tZW50cyBGaWxlc1xDQTQgTWF0ZXJpYWxzXFBhcnQgQVwiKQ0KIyBFbXBscG95ZWVzID0gcmVhZC5zcWwoImRhaWVfY2E0X2RhdGEuc3FsIiwgc3RyaW5nc0FzRmFjdG9ycyA9IEZBTFNFKQ0KDQpgYGANCg0KYGBge3J9DQpsaWJyYXJ5KERCSSkNCmxpYnJhcnkoUlNRTCkNCmxpYnJhcnkoUlNRTGl0ZSkNCmxpYnJhcnkoZHBseXIpDQpsaWJyYXJ5KHltbHRoaXMpDQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCg0KY29uIDwtIGRiQ29ubmVjdChkcnYgPSBSU1FMaXRlOjpTUUxpdGUoKSwgZGJuYW1lID0gImRhaWVfY2E0X2RhdGEzLnNxbGl0ZSIpDQpkYkxpc3RUYWJsZXMoY29uKQ0KYGBgDQoNCmBgYHtzcWwsIGNvbm5lY3Rpb24gPSBjb259DQojIFNFTEVDVCAqIEZST00gRW1wbG95ZWVzIExJTUlUIDUNCg0KYGBg</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmNvbm4gPSBkYkNvbm5lY3QoUk15U1FMOjpNeVNRTCgpLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYm5hbWU9J3NxbDg1OTE0MDInLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICBob3N0PSdzcWw4LmZyZWVzcWxkYXRhYmFzZS5jb20nLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3J0PTMzMDYsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgIHVzZXI9J3NxbDg1OTE0MDInLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwYXNzd29yZCA9IHJzdHVkaW9hcGk6OmFza0ZvclBhc3N3b3JkKCJFbnRlciBkYXRhYmFzZSBwYXNzd29yZCIpKQ0KDQpgYGANCg0KYGBge3J9DQoNCmxpYnJhcnkoREJJKQ0KbGlicmFyeShSU1FMKQ0KbGlicmFyeShSU1FMaXRlKQ0KbGlicmFyeShkcGx5cikNCmxpYnJhcnkoeW1sdGhpcykNCmxpYnJhcnkodGlkeXZlcnNlKQ0KDQpjb25uIDwtIGRiQ29ubmVjdChkcnYgPSBSU1FMaXRlOjpTUUxpdGUoKSwgZGJuYW1lID0gImRhaWVfY2E0X2RhdGEzLnNxbGl0ZSIpDQpkYkxpc3RUYWJsZXMoY29uKQ0KYGBgDQoNCmBgYHtyfQ0KZGJEaXNjb25uZWN0KGNvbm4pDQpgYGA=</div>
 
 
 

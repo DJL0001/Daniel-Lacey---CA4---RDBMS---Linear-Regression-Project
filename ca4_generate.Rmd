@@ -4,13 +4,17 @@ output: html_notebook
 ---
 
 ```{r}
-# getwd()
-# setwd("\Users\DanWorkPC\Desktop\OneDrive - Dundalk Institute of Technology\4. Data Analytics for Immersive Environments Files\CA4 Materials\Part A\")
-# Emplpoyees = read.sql("daie_ca4_data.sql", stringsAsFactors = FALSE)
+conn = dbConnect(RMySQL::MySQL(),
+                             dbname='sql8591402',
+                             host='sql8.freesqldatabase.com',
+                             port=3306,
+                             user='sql8591402',
+                             password = rstudioapi::askForPassword("Enter database password"))
 
 ```
 
 ```{r}
+
 library(DBI)
 library(RSQL)
 library(RSQLite)
@@ -18,11 +22,10 @@ library(dplyr)
 library(ymlthis)
 library(tidyverse)
 
-con <- dbConnect(drv = RSQLite::SQLite(), dbname = "daie_ca4_data3.sqlite")
+conn <- dbConnect(drv = RSQLite::SQLite(), dbname = "daie_ca4_data3.sqlite")
 dbListTables(con)
 ```
 
-```{sql, connection = con}
-# SELECT * FROM Employees LIMIT 5
-
+```{r}
+dbDisconnect(conn)
 ```
