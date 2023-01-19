@@ -1,19 +1,18 @@
 ---
-title: "CA4_Generate"
+title: "CA4_Query"
 author: "Daniel Lacey"
 date: "January, 2023"
 output:
   html_document:
     df_print: paged
 ---
-![](ER Diagram.png),
+![  ](ER Diagram.png),
 
 
 ```{r include=FALSE}
 ## Clear console on each execute and set chunk default to not show code
 cat('\014')
 ```
-
 
 
 ```{r include=FALSE}
@@ -26,8 +25,6 @@ library(dplyr)
 library(ymlthis)
 library(tidyverse)
 
-# conn <- dbConnect(drv = RSQLite::SQLite(), dbname = "daie_ca4_data3.sqlite")
-# dbListTables(con)
 
 ```
 
@@ -44,48 +41,21 @@ conn = dbConnect(RMySQL::MySQL(),
 
 ```
 
-```{r include=FALSE}
-# conn <- dbConnect(RSQLite::SQLite(), "~/Daniel-Lacey---CA4---RDBMS---Linear-Regression-Project/sql8591402.sql")
-# dbWriteTable(conn, "daie_ca4_data", sql8591402, overwrite = T, append = F)
-
-```
-
-
-
-
-
-
 
 ```{r include=FALSE}
 # dbListTables(conn)
 # dbListFields(conn, "Employees")
 ```
 
-```{r include=FALSE}
-# result <- dbGetQuery(conn, "SELECT * FROM Employees")
-# result
-```
 
-# Inserting a row into the database
-
-```{sql connection=conn}
-# INSERT INTO Employees VALUES(28, "Jerry_Smithgold", "jsgold@recall.com", "54", "Male", "450000", "8", "6", "7", "16")
-```
-
-# Selecting employees that have an age greater than 40
 
 ```{sql connection=conn}
 SELECT name FROM Employees WHERE age > "40"
 ```
 
-# Selecting salaries that are lower than 40000
-
 ```{sql connection=conn}
-SELECT salary_euro FROM Employees WHERE salary_euro < "40000"
+SELECT salary_euro FROM Employees WHERE salary_euro > "40000"
 ```
-
-
-
 
 
 ```{sql connection=conn, output.var="Employees_data"}
